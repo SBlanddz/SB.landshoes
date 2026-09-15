@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SB.Landshoes - أحذية رياضية فاخرة</title>
+    <style>
+        /* CSS Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #000000;
+            --accent-color: #ff3b30;
+            --accent-hover: #e03228;
+            --bg-color: #f4f4f6;
+            --card-bg: #ffffff;
+            --text-color: #111111;
+            --text-muted: #666666;
+            --border-radius: 12px;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Top Announcement Bar */
+        .promo-bar {
+            background: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 10px 16px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #222;
+        }
+
+        .promo-bar span {
+            color: var(--accent-color);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header / Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .brand-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo-container img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            background: #000;
+            padding: 4px;
+            border-radius: 6px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+            margin-top: 10px;
+        }
+
+        .hero-image-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 420px;
+            border-radius: var(--border-radius);
+            object-fit: cover;
+            background: #eee;
+        }
+
+        .thumbnail-list {
+            display: flex;
+            gap: 10px;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .thumbnail.active, .thumbnail:hover {
+            border-color: var(--accent-color);
+            opacity: 0.9;
+        }
+
+        .hero-details h1 {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .tagline {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .price-tag {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .current-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .old-price {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            width: 100%;
+            background: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 18px;
+            border-radius: var(--border-radius);
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(255, 59, 48, 0.35);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 59, 48, 0.45);
+        }
+
+        /* Features List */
+        .features {
+            margin-top: 25px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .feature-item span {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Order Form Section */
+        .order-section {
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.06);
+            margin-top: 30px;
+        }
+
+        .order-section h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus {
+            border-color: var(--accent-color);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            .main-image {
+                height: 320px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Promo Bar -->
+    <div class="promo-bar">
+        ⚡ عرض خاص: توصيل سريع مجاني + الدفع عند الاستلام! <span>الكمية محدودة</span>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="brand-logo-container">
+                <img src="logo.png" alt="SB.LAND Logo">
+                <div class="logo-text">SB.LANDSHOES</div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-image-container">
+                <img id="current-shoe" src="shoe1.jpg" alt="SB Shoe Model" class="main-image">
+                <div class="thumbnail-list">
+                    <img src="shoe1.jpg" alt="صورة الحذاء 1" class="thumbnail active" onclick="changeImage(this)">
+                    <img src="shoe2.jpg" alt="صورة الحذاء 2" class="thumbnail" onclick="changeImage(this)">
+                    <img src="shoe3.jpg" alt="صورة الحذاء 3" class="thumbnail" onclick="changeImage(this)">
+                </div>
+            </div>
+
+            <div class="hero-details">
+                <h1>حذاء SB Street Edition الرياضي</h1>
+                <p class="tagline">أحذية عالية الأداء مصممة لتوفير أقصى درجات الراحة والمتانة مع لمسة عصرية جذابة.</p>
+                
+                <div class="price-tag">
+                    <span class="current-price">3800 د.ج</span>
+                    <span class="old-price">4500 د.ج</span>
+                </div>
+
+                <a href="#order-form" class="cta-btn">اطلب الآن - الدفع عند الاستلام</a>
+
+                <div class="features">
+                    <div class="feature-item">
+                        <span>✓</span> مواد ذات جودة عالية ومتانة عالية للاستعمال اليومي
+                    </div>
+                    <div class="feature-item">
+                        <span>✓</span> نعل مريح ومصمم لدعم القدم طوال اليوم
+                    </div>
+                    <div class="feature-item">
+                        <span>✓</span> توصيل سريع ومباشرة إلى باب منزلك
+                    </div>
+                    <div class="feature-item">
+                        <span>✓</span> أدفع بعد معاينة واستلام طلبك
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Form Section -->
+        <section class="order-section" id="order-form">
+            <h2>أطلب زوجك الآن</h2>
+            <form action="#" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullname">الاسم الكامل</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="أدخل اسمك الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف</label>
+                        <input type="tel" id="phone" name="phone" placeholder="أدخل رقم هاتفك" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="address">عنوان التوصيل / الولاية</label>
+                        <input type="text" id="address" name="address" placeholder="الولاية / البلدية / العنوان" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="size">مقاس الحذاء</label>
+                        <select id="size" name="size" required>
+                            <option value="" disabled selected>اختر المقاس</option>
+                            <option value="40">40 EU</option>
+                            <option value="41">41 EU</option>
+                            <option value="42">42 EU</option>
+                            <option value="43">43 EU</option>
+                            <option value="44">44 EU</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="cta-btn" style="margin-top: 10px;">تأكيد الطلب</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 SB.Landshoes. جميع الحقوق محفوظة.</p>
+        </footer>
+    </div>
+
+    <script>
+        function changeImage(element) {
+            document.getElementById('current-shoe').src = element.src;
+            let thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumb => thumb.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
